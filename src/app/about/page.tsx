@@ -168,7 +168,7 @@ export default function About() {
             </p>
             <p className="text-secondary">
               Actively learning Frontend development alongside academics, with
-              skills in HTML, CSS,JavaScript, and .
+              skills in HTML, CSS,JavaScript, and Next.js .
             </p>
           </motion.div>
         </motion.div>
