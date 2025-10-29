@@ -14,7 +14,7 @@ export default function Projects() {
           className="text-3xl font-bold mb-12 text-center"
           {...fadeInUp}
         >
-          Featured Projects 
+          Featured Projects
         </motion.h2>
 
         <motion.div 

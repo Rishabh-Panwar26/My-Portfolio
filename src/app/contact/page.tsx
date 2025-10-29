@@ -88,8 +88,8 @@ export default function Contact() {
               <FaEnvelope className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <a href="mailto:facerishabh2006@gmail.com" className="text-secondary hover:text-primary">
-                  facerishabh2006@gmail.com
+                <a href="mailto:your.email@example.com" className="text-secondary hover:text-primary">
+                  your.email@example.com
                 </a>
               </div>
             </motion.div>
@@ -103,8 +103,8 @@ export default function Contact() {
               <FaPhone className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Phone</h3>
-                <a href="tel:+919319136990" className="text-secondary hover:text-primary">
-                  +919319136990
+                <a href="tel:+1234567890" className="text-secondary hover:text-primary">
+                  +1 (234) 567-890
                 </a>
               </div>
             </motion.div>
@@ -118,7 +118,7 @@ export default function Contact() {
               <FaMapMarkerAlt className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Location</h3>
-                <p className="text-secondary">New Delhi, India</p>
+                <p className="text-secondary">San Francisco, CA</p>
               </div>
             </motion.div>
           </motion.div>
