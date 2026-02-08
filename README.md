@@ -21,9 +21,5 @@ It showcases my skills, projects, and experience as a *Frontend Developer*.
 ## 🔗 Live Demo
 https://my-portfolio-eight-theta-10.vercel.app
 
-## 📧 Contact
-If you’d like to connect or collaborate, feel free to reach out:
-*Email:* Facerishabh2006@gmail.com
-
 ---
 ⭐ If you like this project, consider giving it a star on GitHub!
