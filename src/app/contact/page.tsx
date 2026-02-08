@@ -17,13 +17,14 @@ export default function Contact() {
     email: '',
     message: ''
   })
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = `Contact Form Message from ${formData.name}`
+
+    const subject = `Contact Form Submission from ${formData.name}`
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    const mailtoUrl = `mailto:facerishabh2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailtoUrl
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=facerishabh2006@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+    window.open(gmailUrl, '_blank')
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -113,14 +114,13 @@ export default function Contact() {
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
           {...slideInRight}
         >
-          <motion.form
-            onSubmit={handleSubmit}
+          <motion.form 
+            onSubmit={handleSubmit} 
             className="space-y-6"
             variants={fadeIn}
             initial="initial"
             animate="animate"
           >
-
             <motion.div variants={fadeInUp}>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
@@ -135,7 +135,7 @@ export default function Contact() {
                 className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </motion.div>
-
+            
             <motion.div variants={fadeInUp}>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
@@ -150,7 +150,7 @@ export default function Contact() {
                 className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </motion.div>
-
+            
             <motion.div variants={fadeInUp}>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
                 Message
