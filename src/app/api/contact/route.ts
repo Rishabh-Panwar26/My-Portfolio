@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import emailjs from '@emailjs/nodejs'
 
 interface ContactRequestBody {
   name: string;
@@ -8,22 +9,40 @@ interface ContactRequestBody {
 
 export async function POST(request: Request) {
   try {
-    await request.json() as ContactRequestBody
-    // Here you would typically:
-    // 1. Validate the input
-    // 2. Send an email using a service like SendGrid, AWS SES, etc.
-    // 3. Store the message in a database if needed
+    const { name, email, message }: ContactRequestBody = await request.json()
 
-    // For now, we'll just simulate a successful response
+    // Basic validation
+    if (!name || !message) {
+      return NextResponse.json(
+        { message: 'Name and message are required' },
+        { status: 400 }
+      )
+    }
+
+    try {
+      await emailjs.send(
+        'service_nkc5tco',
+        'template_8bhh6fj',
+        { name, email, message },
+        { publicKey: '_526SZEotjmMHkLDa' }
+      )
+    } catch (error) {
+      console.error('EmailJS send error:', error)
+      return NextResponse.json(
+        { message: 'Failed to send message' },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json(
       { message: 'Message sent successfully' },
       { status: 200 }
     )
   } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : 'Failed to send message'
+    console.error('API error:', error)
     return NextResponse.json(
-      { message: errorMessage },
+      { message: 'Internal server error' },
       { status: 500 }
     )
   }
-} 
+}

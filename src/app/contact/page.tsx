@@ -4,8 +4,10 @@ import { useState } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations'
+import emailjs from '@emailjs/browser'
 
-interface FormData {
+
+interface FormData extends Record<string, unknown> {
   name: string;
   email: string;
   message: string;
@@ -17,15 +19,51 @@ export default function Contact() {
     email: '',
     message: ''
   })
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSuccessMessage('')
+    setErrorMessage('')
 
-    const subject = `Contact Form Submission from ${formData.name}`
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=facerishabh2006@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    // Validation
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your name.')
+      setIsSubmitting(false)
+      return
+    }
 
-    window.open(gmailUrl, '_blank')
-    setFormData({ name: '', email: '', message: '' })
+    if (!formData.message.trim()) {
+      setErrorMessage('Please enter your message.')
+      setIsSubmitting(false)
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage('Please enter a valid email address.')
+      setIsSubmitting(false)
+      return
+    }
+
+    try {
+      await emailjs.send(
+        'service_nkc5tco',
+        'template_8bhh6fj',
+        formData,
+        '_526SZEotjmMHkLDa'
+      )
+      setSuccessMessage('Message sent successfully!')
+      setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setErrorMessage('Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -168,15 +206,18 @@ export default function Contact() {
             
             <motion.button
               type="submit"
-              className="w-full btn btn-primary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              disabled={isSubmitting}
+              className="w-full btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+              whileTap={!isSubmitting ? { scale: 0.98 } : {}}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </motion.button>
           </motion.form>
+          {successMessage && <p className="text-green-600 mt-4">{successMessage}</p>}
+          {errorMessage && <p className="text-red-600 mt-4">{errorMessage}</p>}
         </motion.div>
       </div>
     </div>
   )
-} 
+    }
