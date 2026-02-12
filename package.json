@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@emailjs/nodejs": "^5.0.2",
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.9.7",
     "next": "15.3.8",
