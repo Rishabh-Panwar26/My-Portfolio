@@ -1,6 +1,6 @@
 'use client'
 
-import { FaGithub, FaJs, FaCss3, FaHtml5 } from 'react-icons/fa'
+import { FaGithub, FaJs, FaCss3, FaHtml5, FaReact, FaMagic, FaCube, FaExchangeAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { 
   fadeInUp, 
@@ -94,7 +94,7 @@ export default function About() {
             </ul>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
             variants={fadeInUp}
             {...cardHover}
@@ -105,6 +105,81 @@ export default function About() {
               <li>Version Control</li>
               <li>Collaboration</li>
               <li>Pull Requests</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+            {...cardHover}
+          >
+            <FaReact className="h-8 w-8 text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">React.js</h3>
+            <ul className="text-secondary space-y-2">
+              <li>Hooks</li>
+              <li>Context API</li>
+              <li>API Integration (Axios)</li>
+              <li>React Router Dom</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+            {...cardHover}
+          >
+            <FaReact className="h-8 w-8 text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Next.js</h3>
+            <ul className="text-secondary space-y-2">
+              <li>Component-based Architecture</li>
+              <li>Routing and Navigation</li>
+              <li>State Management</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+            {...cardHover}
+          >
+            <FaMagic className="h-8 w-8 text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">GSAP</h3>
+            <ul className="text-secondary space-y-2">
+              <li>High-Performance Animations</li>
+              <li>Timeline Control</li>
+              <li>ScrollTrigger</li>
+              <li>Ease Functions</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+            {...cardHover}
+          >
+            <FaCube className="h-8 w-8 text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Three.js</h3>
+            <ul className="text-secondary space-y-2">
+              <li>3D Graphics</li>
+              <li>WebGL Rendering</li>
+              <li>Scenes and Cameras</li>
+              <li>Materials and Textures</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+            variants={fadeInUp}
+            {...cardHover}
+          >
+            <FaExchangeAlt className="h-8 w-8 text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Barba.js</h3>
+            <ul className="text-secondary space-y-2">
+              <li>Smooth Page Transitions</li>
+              <li>PJAX Implementation</li>
+              <li>Customizable Views</li>
+              <li>Event Hooks</li>
             </ul>
           </motion.div>
         </motion.div>
@@ -134,7 +209,7 @@ export default function About() {
             {...cardHoverSmall}
           >
             <h3 className="text-xl font-semibold mb-2">Frontend developer</h3>
-            <p className="text-primary mb-2">Fresher(No Experience)</p>
+            <p className="text-primary mb-2">Self learning</p>
             <ul className="text-secondary list-disc list-inside space-y-2">
               <li>Built multiple frontend projects using HTML,CSS,Javascript and Next.js.</li>
               <li>Developed responsive website like a portfolio, Weather app, Rock Paper Scissors and So on</li>
