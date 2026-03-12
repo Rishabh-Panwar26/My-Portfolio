@@ -4,12 +4,12 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
     {
-        title: 'E-commerce Platform',
-        description: 'A e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.',
-        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
-        image: '/projects/e-commerce-website.png',
+        title: 'TripNest - Travel Discovery Platform',
+        description: 'A modern travel discovery app to explore destinations by country with search and filters.',
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion',"React Icons"],
+        githubLink: 'https://github.com/Rishabh-Panwar26/tripnest-landing-site',
+        demoLink: 'https://tripnest-landing-page.vercel.app',
+        image: '/projects/travel-app.png',
       },
       {
         title: 'Task Management App',
